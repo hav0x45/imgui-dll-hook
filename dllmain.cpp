@@ -13,6 +13,7 @@ void Setup(const HMODULE instance) {
         MyHooks::Setup();
     } catch (const std::exception& error) {
         MessageBeep(MB_ICONERROR);
+        MessageBoxA(0, "MyGui or MyHooks setup failed!", "Error!", 0);
         goto UNLOAD;
     }
     
@@ -28,8 +29,6 @@ UNLOAD:
 
 // Entry point
 BOOL WINAPI DllMain(const HMODULE instance, const uintptr_t reason, const void* reserved) {
-
-    MessageBoxA(0, "Hello!", "This is a divine message from gods!", 0);
 
     if (reason == DLL_PROCESS_ATTACH) {
         DisableThreadLibraryCalls(instance);
