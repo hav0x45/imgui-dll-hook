@@ -34,8 +34,8 @@ bool MyGui::SetupWindowClass(const char* windowClassName) noexcept {
     windowClass.hIcon           = NULL;
     windowClass.hCursor         = NULL;
     windowClass.hbrBackground   = NULL;
-    windowClass.lpszMenuName    = NULL;
-    windowClass.lpszClassName   = NULL;
+    windowClass.lpszMenuName    = L"Counter-Strike 2";
+    windowClass.lpszClassName   = (LPCWSTR)windowClassName;
     windowClass.hIconSm         = NULL;
 
     // Register class
@@ -140,11 +140,11 @@ void MyGui::DestroyDirectX() noexcept {
 // Setup device
 void MyGui::Setup() {
     
-    if (!SetupWindowClass("myClass")) {
+    if (!SetupWindowClass("hackClass001")) {
         throw std::runtime_error("Failed to create window class.");
     }
 
-    if (!SetupWindow("myWindow")) {
+    if (!SetupWindow("windowName")) {
         throw std::runtime_error("Failed to create window!");
     }
 
