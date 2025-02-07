@@ -7,7 +7,7 @@
 
 // Setup function
 void Setup(const HMODULE instance) {
-    
+
     try {
         MyGui::Setup();
         MyHooks::Setup();
