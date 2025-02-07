@@ -13,7 +13,7 @@ void Setup(const HMODULE instance) {
         MyHooks::Setup();
     } catch (const std::exception& error) {
         MessageBeep(MB_ICONERROR);
-        MessageBoxA(0, "MyGui or MyHooks setup failed!", "Error!", 0);
+        MessageBoxA(0, error.what(), "Error!", 0);
         goto UNLOAD;
     }
     

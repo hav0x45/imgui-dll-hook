@@ -114,7 +114,8 @@ bool MyGui::SetupDirectX() noexcept {
     params.FullScreen_RefreshRateInHz   = 0;
     params.PresentationInterval         = 0;
 
-    if (d3d9->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_NULLREF, window, D3DCREATE_SOFTWARE_VERTEXPROCESSING | D3DCREATE_DISABLE_DRIVER_MANAGEMENT, &params, &device) < 0) {
+    if (d3d9->CreateDevice(
+        D3DADAPTER_DEFAULT, D3DDEVTYPE_NULLREF, window, D3DCREATE_SOFTWARE_VERTEXPROCESSING | D3DCREATE_DISABLE_DRIVER_MANAGEMENT, &params, &device) < 0) {
         return false;
     }
 
@@ -139,11 +140,11 @@ void MyGui::DestroyDirectX() noexcept {
 // Setup device
 void MyGui::Setup() {
     
-    if (!SetupWindowClass("Window Class!")) {
+    if (!SetupWindowClass("myClass")) {
         throw std::runtime_error("Failed to create window class.");
     }
 
-    if (!SetupWindow("Game Window!")) {
+    if (!SetupWindow("myWindow")) {
         throw std::runtime_error("Failed to create window!");
     }
 
